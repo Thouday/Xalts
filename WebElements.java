@@ -22,6 +22,12 @@ public class WebElements {
     @FindBy(xpath = "//button[text()='Sign In']")
     private WebElement SignIn;
 
+    @FindBy(xpath = "//button[text()='Sign Up']")
+    private WebElement SignUp;
+
+    @FindBy(xpath = "//button[text()='Sign Out']")
+    private WebElement SignOut;
+
     @FindBy(xpath = "//h2[text()='Onboard OCN Node']")
     private WebElement Onboard;
 
@@ -56,6 +62,14 @@ public class WebElements {
 
     public WebElement getSignIn() {
         return SignIn;
+    }
+
+    public WebElement getSignUp(){
+        return SignUp;
+    }
+
+    public WebElement getSignOut(){
+        return SignOut;
     }
 
     public WebElement getOnboard() {
