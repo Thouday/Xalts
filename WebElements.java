@@ -1,6 +1,5 @@
-package org.example;
+package Assessment;
 
-import org.checkerframework.checker.units.qual.N;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
