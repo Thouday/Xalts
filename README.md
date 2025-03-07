@@ -23,6 +23,8 @@ Scenario 2 : User launches the URL and clicks on "Get Started" and enters creden
              then get the pop-up like "Provided E-Mail is already in use" and again clicks on "Already have an account? Click here to sign in." 
              and enters credentials with email and pswd and clicks on "Sign In" btn will redirect to get started page.
 
+Created the Automation framework by using TestNG and POM Design:
+
 When user Logged In and continues the Submit Request To Onboard Nodes to Existing Blockchain:
 1. Entered the details of the node (node ID and public IP) and clicked "ADD NODE" to add node to make a list of nodes.
 2. Repeated the process by using looping condition to the wish list.
