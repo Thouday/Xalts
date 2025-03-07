@@ -171,21 +171,32 @@ public class Main {
 
     @Test
     public void test() throws Exception {
-        webElements.getGetStarted().click();
-        webElements.getAlreadyAccount().click();
+        wait.until(visibilityOf(webElements.getGetStarted())).click();
+        wait.until(visibilityOf(webElements.getAlreadyAccount())).click();
         Thread.sleep(1000);
         Credentials();
-        webElements.getSignIn().click();
-        Thread.sleep(2000);
-        webElements.getGetStarted().click();
+        wait.until(visibilityOf(webElements.getSignIn())).click();
+        Thread.sleep(4000);
+        wait.until(visibilityOf(webElements.getGetStarted())).click();
         Thread.sleep(1000);
-        webElements.getOnboard().click();
+        wait.until(visibilityOf(webElements.getOnboard())).click();
         for (int i = 0; i < 3; i++) {
             Thread.sleep(2000);
             webElements.getOCNNodeIDCredentials().getFirst().sendKeys("NodeID-" + i);
             webElements.getOCNNodeIDCredentials().get(1).sendKeys("193.16.1." + i);
-            webElements.getAddNode().click();
+            if (i == 0) {
+                webElements.getAddNode().click();
+            } else if (i == 1) {
+                webElements.getValidator().click();
+                webElements.getSelect().get(1).click();
+                webElements.getAddNode().click();
+            } else if (i==2) {
+                webElements.getAddNode().click();
+            }
         }
+        Thread.sleep(2000);
+        wait.until(visibilityOf(webElements.getNodes().getLast())).click();
+        wait.until(visibilityOf(driver.findElement(By.xpath("//button[text()='Remove Selected Nodes']")))).click();
         for (int i = 0; i < 2; i++) {
             webElements.getNext().click();
             Thread.sleep(1000);
@@ -212,6 +223,7 @@ public class Main {
             Thread.sleep(2000);
             wait.until(visibilityOf(webElements.getOCNNodeIDCredentials().getFirst())).sendKeys("NodeID-" + i);
             wait.until(visibilityOf(webElements.getOCNNodeIDCredentials().get(1))).sendKeys("193.16.1." + i);
+
             wait.until(visibilityOf(webElements.getAddNode())).click();
         }
         wait.until(visibilityOf(webElements.getNext())).click();
@@ -224,4 +236,3 @@ public class Main {
             driver.quit();
         }
     }
-}
