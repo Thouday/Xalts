@@ -70,15 +70,22 @@ public class Main {
       Thread.sleep(1000);
       Credentials();
       webElements.getSignIn().click();
-      Thread.sleep(2000);
+      Thread.sleep(4000);
       webElements.getGetStarted().click();
       Thread.sleep(1000);
       webElements.getLaunchOCN().click();
-      for(int i=0; i<3; i++){
-         Thread.sleep(1000);
-         webElements.getOCNNodeIDCredentials().getFirst().sendKeys("Pavan");
-
+      Thread.sleep(1000);
+      webElements.getOCNNodeIDCredentials().getFirst().sendKeys("Pavan");
+      webElements.getOCNNodeIDCredentials().get(1).sendKeys("0x32Be343B94f860124dC4fEe278FDCBD38C102D88");
+      webElements.getNext().click();
+      for (int i = 0; i < 3; i++) {
+         Thread.sleep(2000);
+         webElements.getOCNNodeIDCredentials().getFirst().sendKeys("NodeID-" + i);
+         webElements.getOCNNodeIDCredentials().get(1).sendKeys("193.16.1." + i);
+         webElements.getAddNode().click();
       }
+      webElements.getNext().click();
+      webElements.getSubmit().click();
    }
 
    @AfterMethod
