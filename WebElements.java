@@ -31,6 +31,14 @@ public class WebElements {
     @FindBy(xpath = "//h2[text()='Onboard OCN Node']")
     private WebElement Onboard;
 
+    @FindBy(xpath = "//div[@id='node-type-select']")
+    private WebElement Validator;
+
+    @FindBys({
+            @FindBy(xpath = "//li[contains(@class,'MuiButtonBase-root')]")
+    })
+    private List<WebElement> Select;
+
     @FindBys({
             @FindBy(xpath = "//div[contains(@class,'MuiInputBase-root')]/input")
     })
@@ -47,6 +55,11 @@ public class WebElements {
 
     @FindBy(xpath = "//h2[text()='Launch OCN Child Network']")
     private WebElement LaunchOCN;
+
+    @FindBys({
+            @FindBy(xpath = "//span[contains(@class,'MuiButtonBase-root')]")
+    })
+    private List<WebElement> Nodes;
 
     public WebElement getGetStarted() {
         return GetStarted;
@@ -76,6 +89,10 @@ public class WebElements {
         return Onboard;
     }
 
+    public List<WebElement> getSelect(){
+        return Select;
+    }
+
     public List<WebElement> getOCNNodeIDCredentials(){
         return OCNNodeIDCredentials;
     }
@@ -94,6 +111,14 @@ public class WebElements {
 
     public WebElement getLaunchOCN(){
         return LaunchOCN;
+    }
+
+    public WebElement getValidator(){
+        return Validator;
+    }
+
+    public List<WebElement> getNodes(){
+        return Nodes;
     }
 
 }
